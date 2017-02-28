@@ -23,4 +23,19 @@ app.post('/flashcards', function(req, res) {
 });
 
 });
+
+app.put('/flashcards',function(req,res){
+var query = `UPDATE flashcards set ront_text= '${req.body.front_text}',
+back_text = '${req.body.back_text}',subject ='${req.body.subject}'WHERE
+id= ${req.body.id}`;
+connection.query(xxx.function(err,result){
+    if (err){
+        console.log("Error updating flashcards with id"+req.body.id);
+        return res.sendStatus(500);
+    }
+    res.json(result);
+});
+
+});
+
 }
